@@ -1,0 +1,219 @@
+:root {
+    --current-player-health:100%;
+    --other-player-health:100%;
+}
+
+.game-status-bar {
+  display: flex;
+  justify-content: space-around;
+}
+
+.controllers {
+  display: flex;
+  justify-content: center;
+}
+.controllers > button {
+  margin-right: 0.3rem;
+  padding: 10px;
+  background-color: #f08f8f;
+  font-weight: 600;
+  border: none;
+  width: 10rem;
+  outline: none;
+}
+.status {
+  text-align: center;
+  font-weight: 600;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-style: italic;
+}
+.game {
+    background: url('/images/layout.jpg');
+    height: 459px;
+    width: 612px;
+    position: relative;
+    margin-bottom: 10px;
+    left: 0;
+    right: 0;
+}
+.wrap-game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.health-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content:flex-start;
+}
+.health-status > h3 {
+    margin: 0;
+    width: 100%;
+    display: flex;
+}
+
+.health-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 5px;
+}
+
+.health-bar {
+    margin-left: 0.2rem;
+    height: 8px;
+    width: 100%;
+    border-radius: 10px;
+    background-color: #F0E3E3;
+    position: relative;
+}
+.health-bar::before {
+    position: absolute;
+    content: '';
+    width: 0%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 10px;
+    background-color: #E80000;
+}
+#current-health::before {
+    width: calc(var(--current-player-health));
+}
+/* width: calc(100% - var(--other-player-health)); */
+#other-health::before {
+    width: calc(var(--other-player-health));
+}
+.player {
+	width: 56px;
+	height: 64px;
+}
+#current-player {
+    background: url('/images/assets/CHARACTER_SPRITES/Yellow/Gunner_Yellow_Idle.png') no-repeat 0px -7px;
+    margin-left: 30%;
+}
+#other-player {
+    background: url('/images/assets/CHARACTER_SPRITES/Red/Gunner_Red_Idle_right.png') no-repeat 0px -7px;
+    margin-right: 30%;
+}
+.track {
+    display: flex;
+    position: absolute;
+    justify-content: space-between;
+    width: 100%;
+    bottom: 28px;
+}
+
+.bullet {
+    /* background: url('/images/assets/EXTRAS/SpongeBullet.png') 0 0px no-repeat; */
+    height: 8px;
+    width: 25px;
+    background: rgb(215,248,7);
+    background: linear-gradient(90deg,  rgba(215,248,7,1) 0%, rgba(168,204,16,1) 28%, rgba(177,183,21,1) 52%, rgba(161,174,26,1) 76%, rgba(232,236,129,1) 100%);
+    margin-top: 10px;
+    transition: 0.5s ease-in;
+    position: absolute;
+}
+.your-bullet {
+    left: 40%;
+    border-radius: 0px 15px 15px 0px;
+}
+.your-bullet.move {
+    transform: translateX(125px);
+}
+.other-bullet {
+    right: 40%;
+    border-radius: 15px 0px 0px 15px;
+}
+.other-bullet.move {
+    transform: translateX(-130px);
+}
+
+.waiting-area {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+.game-popup {
+    height: 459px;
+    width: 612px;
+    margin: 0;
+    background: #474141ba;
+    position: absolute;
+    z-index: 3;
+}
+.join-btn {
+    background-color: #5c3c3c;
+    color: #eadada;
+    font-weight: 600;
+    letter-spacing: 0.17em;
+    width: 6rem;
+    height: 3rem;
+    font-size: medium;
+    outline: none;
+    border: #6a6565 solid 1px;
+    border-radius: 3px;
+}
+
+#invite-id {
+    background-color: #ddded4;
+    outline: none;
+    border: dotted 2px gray;
+    border-radius: 6px;
+    margin-bottom: 5px;
+    text-align: center;
+    position: relative;
+}
+#copy-btn {
+    height: 1.6rem;
+    border: solid 2px rgba(209, 206, 206, 0.671);
+    border-radius: 5px;
+    width: auto;
+    background-color: #ddded4;
+    margin-bottom: -10px;
+}
+#copy-btn:hover {
+    box-shadow: 1px 2px 1px 1px rgba(234,214,214,0.75);
+    -webkit-box-shadow: 1px 2px 1px 1px rgba(234,214,214,0.75);
+    -moz-box-shadow: 1px 2px 1px 1px rgba(234,214,214,0.75);
+}
+.waiting-area > p{
+    font-weight: 600;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+#join-id {
+    background-color: #ddded4;
+    outline: none;
+    border: dotted 2px gray;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    text-align: center;
+    position: relative;
+    width: 12.5rem;
+}
+
+.game-popup{
+    /* display: none; */
+}
+
+.timer-game {
+    color: white;
+    font-size: 12rem;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 18%;
+    font-family: 'Times New Roman', Times, serif;
+    display: none;
+}
+.tingle-modal__closeIcon {
+color: #cae6a5;
+}
+.custom-modal >.tingle-modal-box>.tingle-modal-box__content {
+    background: linear-gradient(139deg, #58c251,#36a023db, #77c06abd);
+}
